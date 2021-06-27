@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto 31</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <section>
+        <div class="conainer">
+        <div class="bg"></div>
+        <header>
+            <a href="index.html" class="logo">Hortifruti</a>
+            <div class="toggle"></div>
+            <ul class="navigation">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">What´s New</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>Eat fresh Everyday</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione odit quis, nostrum nam enim soluta blanditiis est cupiditate eum voluptas cumque fugiat neque voluptatum mollitia inventore eligendi iusto atque illo.</p>
+                <a href="#">Learn More</a>
+            </div><!-- textBox -->
+            <div class="imgBox">
+                <img class="fruits" src="imagens/apple.png" alt="imagen apple">
+            </div><!-- imgBox -->
+        </div><!-- content -->
+        <ul class="thumb">
+            <li data-text="Apple" class="active"><img src="imagens/apple.png" onclick="imgSlider('imagens/apple.png');changeBgColor('#fc4a55')"></li>
+            <li data-text="Mango"><img src="imagens/mango.png" onclick="imgSlider('imagens/mango.png');
+            changeBgColor('#ffcc20')"></li>
+            <li data-text="Watermelon"><img src="imagens/watermelon.png" onclick="imgSlider('imagens/watermelon.png');changeBgColor('#92ba3c')"></li>
+            <li data-text="Dragon Fruits"><img src="imagens/dragonFruits.png" onclick="imgSlider('imagens/dragonFruits.png');changeBgColor('#fb6cb2')"></li>
+            <li data-text="Pineapple"><img src="imagens/pineApple.png" onclick="imgSlider('imagens/pineApple.png');
+            changeBgColor('#ffb42b')"></li>
+        </ul>
+        <ul class="sci">
+            <li><a href="#"><img src="imagens/facebook.png" alt="facebook"></a></li>
+            <li><a href="#"><img src="imagens/twitter.png" alt="facebook"></a></li>
+            <li><a href="#"><img src="imagens/instagram.png" alt="facebook"></a></li>
+        </ul>
+
+        </div><!-- container -->
+    </section>
+
+
+
+<!-- Scripr Js -->
+<script>
+//menu mobile responsive
+let menuToggle = document.querySelector('.toggle');
+let navigation = document.querySelector('.navigation');
+menuToggle.onclick = function(){
+    menuToggle.classList.toggle('active');
+    navigation.classList.toggle('active');
+}
+
+// chenge image on click
+function imgSlider(anything){
+    document.querySelector('.fruits').src = anything;
+}
+
+//change background color
+function changeBgColor(color){
+    const bg = document.querySelector('.bg');
+    bg.style.backgroundColor = color;
+}
+
+// add active class in selected thumbnails 
+let el = document.querySelectorAll('.thumb li')
+for (let i = 0; i < el.length; i++){
+    el[i].onclick = function(){
+        var c = 0;
+        while (c < el.length){
+            el[c++].className = 'check';
+        }
+        el[i].className = 'check active'
+    }
+}
+</script>
+<!-- Project Youtube canal 'Online Tutorials' -->
+</body>
+</html>
